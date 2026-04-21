@@ -57,7 +57,7 @@ const StatsContentBlock = ({ data }: StatsContentBlockProps) => {
         </RevealBlock>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {data.stats.map((stat, i) => (
             <RevealBlock key={i} delay={i * 100}>
               <div className="glass-subtle rounded-2xl p-6 text-center hover:glass-strong transition-all duration-500">

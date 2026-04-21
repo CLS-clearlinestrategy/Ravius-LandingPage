@@ -4,12 +4,12 @@ import SplitText from "@/components/core/SplitText";
 import ParallaxLayer from "@/components/core/ParallaxLayer";
 import {
   Zap, Layers, Shield, Sparkles, Rocket, Palette,
-  Code2, BarChart3, Globe, Lock, MessageSquare, PenTool,
+  Code2, BarChart3, Globe, Lock, MessageSquare, PenTool, Layout, Target,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap, Layers, Shield, Sparkles, Rocket, Palette,
-  Code2, BarChart3, Globe, Lock, MessageSquare, PenTool,
+  Code2, BarChart3, Globe, Lock, MessageSquare, PenTool, Layout, Target,
 };
 
 interface ProcessContentBlockProps {

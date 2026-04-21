@@ -3,11 +3,11 @@ import RevealBlock from "@/components/core/RevealBlock";
 import SplitText from "@/components/core/SplitText";
 import {
   Zap, Layers, Shield, Sparkles, Rocket, Palette,
-  Code2, BarChart3, Globe, Lock,
+  Code2, BarChart3, Globe, Lock, Layout, Target,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Zap, Layers, Shield, Sparkles, Rocket, Palette, Code2, BarChart3, Globe, Lock,
+  Zap, Layers, Shield, Sparkles, Rocket, Palette, Code2, BarChart3, Globe, Lock, Layout, Target,
 };
 
 interface FeaturesContentBlockProps {

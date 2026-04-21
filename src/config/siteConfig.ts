@@ -199,6 +199,31 @@ export const siteConfig: SiteConfig = {
 
   contentBlocks: [
     {
+      id: "differentials",
+      type: "features",
+      title: "Conheça nossas",
+      highlight: "especialidades",
+      description:
+        "Cada detalhe foi projetado para entregar a melhor experiência possível, do código à interface final.",
+      items: [
+        { icon: "Code2", title: "Softwares sob medida", description: "Sistemas robustos e escaláveis desenvolvidos especificamente para as necessidades únicas do seu negócio." },
+        { icon: "Layout", title: "Sites modernos que captam leads", description: "Design premium focado em conversão, com performance extrema e SEO otimizado para o Google." },
+        { icon: "Rocket", title: "Entregas rápidas", description: "Metodologia ágil e arquitetura modular que permitem colocar seu projeto no ar em tempo recorde." },
+        { icon: "Target", title: "Consultorias estratégicas", description: "Direcionamento técnico especializado para garantir a melhor escolha de tecnologia e infraestrutura." },
+      ],
+    },
+    {
+      id: "demo-video",
+      type: "video",
+      title: "Veja em",
+      highlight: "ação",
+      description:
+        "Assista como o Padrão Ravius acelera a criação de interfaces modernas com scroll suave, parallax e animações baseadas em física real.",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      posterImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
+      videoPosition: "left",
+    },
+    {
       id: "about",
       type: "image",
       title: "Arquitetura que",
@@ -215,57 +240,15 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
-      id: "demo-video",
-      type: "video",
-      title: "Veja em",
-      highlight: "ação",
-      description:
-        "Assista como o Padrão Ravius acelera a criação de interfaces modernas com scroll suave, parallax e animações baseadas em física real.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      posterImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
-      videoPosition: "left",
-    },
-    {
-      id: "philosophy",
-      type: "image",
-      title: "Design com",
-      highlight: "propósito",
-      description:
-        "Cada pixel foi pensado para contar uma história. Glassmorphism sutil, tipografia precisa e micro-animações que guiam o olhar sem distrair.",
-      imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
-      imageAlt: "Design abstrato com formas geométricas",
-      imagePosition: "left",
-      features: [
-        "Sistema de tokens semânticos em HSL",
-        "Glassmorphism com dois níveis de intensidade",
-        "Animações baseadas em física real",
-      ],
-    },
-    {
-      id: "differentials",
-      type: "features",
-      title: "Nossos",
-      highlight: "diferenciais",
-      description:
-        "Cada detalhe foi projetado para entregar a melhor experiência possível, do código à interface final.",
-      items: [
-        { icon: "Zap", title: "Ultra Rápido", description: "Build otimizado com Vite e tree-shaking agressivo para bundles mínimos." },
-        { icon: "Palette", title: "Design Tokens", description: "Sistema semântico de cores HSL com suporte nativo a temas." },
-        { icon: "Code2", title: "DX Premium", description: "TypeScript estrito, auto-complete rico e zero configuração manual." },
-        { icon: "Shield", title: "Segurança First", description: "Validação Zod em todas as entradas e sanitização automática." },
-      ],
-    },
-    {
       id: "stats",
       type: "stats",
       title: "Resultados que",
       highlight: "falam por si",
       description: "Números reais de clientes que adotaram o Padrão Ravius em seus negócios.",
       stats: [
-        { value: "+320%", label: "Aumento em conversões" },
+        { value: "+120%", label: "Aumento em conversões" },
         { value: "1.2s", label: "Tempo médio de carregamento" },
-        { value: "98", label: "Pontuação Lighthouse" },
-        { value: "+150", label: "Projetos entregues" },
+        { value: "+20", label: "Projetos entregues" },
       ],
     },
     {
@@ -277,7 +260,7 @@ export const siteConfig: SiteConfig = {
       steps: [
         { icon: "MessageSquare", title: "Descoberta", description: "Entendemos seu negócio, público-alvo e objetivos para traçar a estratégia ideal." },
         { icon: "PenTool", title: "Design & Prototipação", description: "Criamos protótipos interativos com seu branding aplicado ao Padrão Ravius." },
-        { icon: "Code2", title: "Desenvolvimento", description: "Implementação modular com TypeScript estrito, testes e deploy automatizado." },
+        { icon: "Code2", title: "Desenvolvimento", description: "Implementação modular com as melhores tecnologias, testes e disponibilidade total." },
         { icon: "Rocket", title: "Lançamento & Suporte", description: "Deploy em produção com monitoramento, analytics e suporte contínuo pós-lançamento." },
       ],
     },
@@ -289,20 +272,20 @@ export const siteConfig: SiteConfig = {
       description: "Depoimentos reais de profissionais que transformaram seus negócios com o Padrão Ravius.",
       testimonials: [
         {
-          name: "Dra. Camila Ferreira",
-          role: "Diretora — Clínica Vitale",
+          name: "Dra. Camila",
+          role: "Diretora Comercial",
           content: "Depois de adotar o Ravius, nosso agendamento online cresceu 240%. A landing page transmite exatamente a sofisticação que nossos pacientes esperam.",
           avatarUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=100&h=100&fit=crop&crop=face",
         },
         {
-          name: "Ricardo Mendes",
-          role: "CEO — Aura Spa & Wellness",
+          name: "Cauã Lucas",
+          role: "CEO",
           content: "A velocidade de carregamento e as animações fluidas fizeram toda a diferença. Nossos clientes comentam sobre a experiência do site antes mesmo da primeira sessão.",
           avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
         },
         {
-          name: "Ana Beatriz Costa",
-          role: "Fundadora — Studio Lumière",
+          name: "Ana Beatriz",
+          role: "Fundadora — OldAndRude",
           content: "Ter uma landing page que reflete a identidade do meu estúdio era essencial. O Ravius entregou isso com uma arquitetura que minha equipe de marketing consegue atualizar sozinha.",
           avatarUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
         },
@@ -321,6 +304,7 @@ export const siteConfig: SiteConfig = {
         { name: "Dermavita", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Dermavita&font=outfit" },
         { name: "ZenFlow", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=ZenFlow&font=outfit" },
         { name: "NeoHealth", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=NeoHealth&font=outfit" },
+        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" },
       ],
     },
     {

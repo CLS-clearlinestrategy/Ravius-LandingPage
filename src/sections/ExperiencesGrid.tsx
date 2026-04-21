@@ -3,12 +3,12 @@ import RevealBlock from "@/components/core/RevealBlock";
 import SplitText from "@/components/core/SplitText";
 import {
   Rocket, Palette, Code2, BarChart3, Globe, Lock,
-  Zap, Layers, Shield, Sparkles,
+  Zap, Layers, Shield, Sparkles, Layout, Target,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Rocket, Palette, Code2, BarChart3, Globe, Lock,
-  Zap, Layers, Shield, Sparkles,
+  Zap, Layers, Shield, Sparkles, Layout, Target,
 };
 
 const ExperiencesGrid = () => {
