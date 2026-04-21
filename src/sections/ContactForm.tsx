@@ -108,11 +108,26 @@ const ContactForm = () => {
   const fieldKeys = ["name", "email", "message"] as const;
 
   return (
-    <section id="contact" className="relative py-20 md:py-28 overflow-hidden">
-      <SectionFade position="top" color="hsl(var(--background))" />
-      <BackgroundGif gifUrl="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGw3ejN2MWUwaXBqZXloc3NncWs0a29nNW9pc2QyZjNxeGxpZTAydiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8w61HSu6xQjoa2NzKN/giphy.gif">
-        <RevealBlock className="container mx-auto px-6 max-w-xl relative z-10">
-          <div className="text-center mb-12">
+    <section id="contact" className="relative py-20 md:py-32 min-h-screen flex items-center justify-center bg-background px-4 md:px-8 overflow-hidden">
+      <BackgroundGif
+        gifUrl="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGw3ejN2MWUwaXBqZXloc3NncWs0a29nNW9pc2QyZjNxeGxpZTAydiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8w61HSu6xQjoa2NzKN/giphy.gif"
+        className="z-0"
+        blur="blur-2xl"
+        overlayColor="bg-black/40"
+      />
+      <SectionFade position="top" color="hsl(var(--background))" height="150px" />
+
+      <RevealBlock className="w-full max-w-[1100px] mx-auto rounded-3xl overflow-hidden flex flex-col md:flex-row glass-strong shadow-2xl relative z-10">
+
+        {/* Left Column: Image Area */}
+        <div className="relative w-full md:w-[45%] min-h-[400px] md:min-h-full flex flex-col justify-center p-8 md:p-14 overflow-hidden">
+          <BackgroundGif
+            gifUrl="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGw3ejN2MWUwaXBqZXloc3NncWs0a29nNW9pc2QyZjNxeGxpZTAydiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8w61HSu6xQjoa2NzKN/giphy.gif"
+            className="z-0"
+            blur="blur-sm"
+            overlayColor="bg-black/40"
+          />
+          <div className="relative z-10">
             <SplitText
               text={contact.title}
               tag="h2"
@@ -120,68 +135,76 @@ const ContactForm = () => {
               delay={40}
               duration={1}
               ease="power3.out"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-4xl font-bold mb-3"
-              textAlign="center"
+              from={{ opacity: 0, x: -30 }}
+              to={{ opacity: 1, x: 0 }}
+              className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight"
+              textAlign="left"
             />
-            <p className="text-muted-foreground">{contact.subtitle}</p>
+            <p className="text-white/80 text-base md:text-lg max-w-sm">
+              {contact.subtitle}
+            </p>
           </div>
+        </div>
 
-          <form onSubmit={handleSubmit} className="glass-strong rounded-2xl p-8 space-y-6">
-            {fieldKeys.map((key) => {
-              const field = contact.fields[key];
-              const isTextarea = key === "message";
-              const Component = isTextarea ? "textarea" : "input";
+        {/* Right Column: Form Area */}
+        <div className="w-full md:w-[55%] p-8 md:p-14 flex flex-col justify-center bg-background/50 backdrop-blur-md">
+          <div className="max-w-[420px] w-full mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {fieldKeys.map((key) => {
+                const field = contact.fields[key];
+                const isTextarea = key === "message";
+                const Component = isTextarea ? "textarea" : "input";
 
-              return (
-                <div key={key} className="space-y-2">
-                  <label
-                    htmlFor={key}
-                    className="block text-sm font-medium text-foreground"
-                  >
-                    {field.label}
-                  </label>
-                  <Component
-                    id={key}
-                    name={key}
-                    placeholder={field.placeholder}
-                    value={state.values[key]}
-                    onChange={(e) =>
-                      dispatch({
-                        type: "SET_FIELD",
-                        field: key,
-                        value: (e.target as HTMLInputElement | HTMLTextAreaElement).value,
-                      })
-                    }
-                    className={`w-full rounded-lg bg-background/50 border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all ${state.errors[key] ? "border-destructive" : "border-border"
-                      } ${isTextarea ? "min-h-[120px] resize-none" : ""}`}
-                  />
-                  {state.errors[key] && (
-                    <p className="text-xs text-destructive">{state.errors[key]}</p>
-                  )}
-                </div>
-              );
-            })}
+                return (
+                  <div key={key} className="space-y-2">
+                    <label
+                      htmlFor={key}
+                      className="block text-sm font-medium text-foreground"
+                    >
+                      {field.label}
+                    </label>
+                    <Component
+                      id={key}
+                      name={key}
+                      placeholder={field.placeholder}
+                      value={state.values[key]}
+                      onChange={(e) =>
+                        dispatch({
+                          type: "SET_FIELD",
+                          field: key,
+                          value: (e.target as HTMLInputElement | HTMLTextAreaElement).value,
+                        })
+                      }
+                      className={`w-full rounded-lg bg-background/50 border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all ${state.errors[key] ? "border-destructive" : "border-border"
+                        } ${isTextarea ? "min-h-[120px] resize-none" : ""}`}
+                    />
+                    {state.errors[key] && (
+                      <p className="text-xs text-destructive">{state.errors[key]}</p>
+                    )}
+                  </div>
+                );
+              })}
 
-            <button
-              type="submit"
-              disabled={state.status === "submitting"}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 disabled:opacity-50 transition-all hover:shadow-[0_0_30px_hsla(145,65%,52%,0.25)]"
-            >
-              {state.status === "submitting" ? (
-                <span className="inline-block w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-              ) : (
-                <>
-                  <Send className="w-4 h-4" />
-                  {contact.submitLabel}
-                </>
-              )}
-            </button>
-          </form>
-        </RevealBlock>
-      </BackgroundGif>
-      <SectionFade position="bottom" color="hsl(var(--background))" />
+              <button
+                type="submit"
+                disabled={state.status === "submitting"}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 disabled:opacity-50 transition-all hover:shadow-[0_0_30px_hsla(145,65%,52%,0.25)]"
+              >
+                {state.status === "submitting" ? (
+                  <span className="inline-block w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    {contact.submitLabel}
+                  </>
+                )}
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </RevealBlock>
+      <SectionFade position="bottom" color="hsl(var(--background))" height="150px" />
     </section>
   );
 };

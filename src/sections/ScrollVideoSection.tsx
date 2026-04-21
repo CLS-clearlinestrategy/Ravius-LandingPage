@@ -63,10 +63,6 @@ const ScrollVideoSection = () => {
                           <a href="#contact" className="px-6 py-3 bg-white text-zinc-950 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-white/90 transition-colors">
                             Comece agora <ArrowRight className="w-5 h-5" />
                           </a>
-
-                          <a href="#about" className="px-6 py-3 border border-white/10 text-white rounded-full flex items-center justify-center font-semibold hover:bg-white/5 transition-colors">
-                            Conheça mais
-                          </a>
                         </div>
                       </div>
                     </div>
