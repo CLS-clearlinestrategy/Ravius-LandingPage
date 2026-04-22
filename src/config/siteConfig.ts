@@ -89,6 +89,16 @@ export interface StatsBlockConfig extends BaseBlock {
   stats: { value: string; label: string }[];
 }
 
+export interface ContactBlockConfig {
+  id: string;
+  type: "contact";
+}
+
+export interface ExperiencesBlockConfig {
+  id: string;
+  type: "experiences";
+}
+
 export type ContentBlockConfig =
   | ImageBlockConfig
   | VideoBlockConfig
@@ -98,7 +108,9 @@ export type ContentBlockConfig =
   | LogoBarBlockConfig
   | ProcessBlockConfig
   | TeamBlockConfig
-  | StatsBlockConfig;
+  | StatsBlockConfig
+  | ContactBlockConfig
+  | ExperiencesBlockConfig;
 
 export interface ExperienceCard {
   icon: string;
@@ -213,33 +225,6 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
-      id: "demo-video",
-      type: "video",
-      title: "Veja em",
-      highlight: "ação",
-      description:
-        "Assista como o Padrão Ravius acelera a criação de interfaces modernas com scroll suave, parallax e animações baseadas em física real.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      posterImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
-      videoPosition: "left",
-    },
-    {
-      id: "about",
-      type: "image",
-      title: "Arquitetura que",
-      highlight: "escala",
-      description:
-        "O Padrão Ravius separa dados, lógica e visual em camadas independentes. Isso significa que você pode trocar o design inteiro sem tocar na lógica de negócio — ou vice-versa.",
-      imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      imageAlt: "Dashboard de arquitetura modular",
-      imagePosition: "right",
-      features: [
-        "Configuração centralizada em um único arquivo",
-        "Hooks reutilizáveis e testáveis",
-        "Componentes puros sem side-effects",
-      ],
-    },
-    {
       id: "stats",
       type: "stats",
       title: "Resultados que",
@@ -252,6 +237,17 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
+      id: "demo-video",
+      type: "video",
+      title: "Veja em",
+      highlight: "ação",
+      description:
+        "Assista como o Padrão Ravius acelera a criação de interfaces modernas com scroll suave, parallax e animações baseadas em física real.",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      posterImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
+      videoPosition: "left",
+    },
+    {
       id: "process",
       type: "process",
       title: "Como",
@@ -262,6 +258,25 @@ export const siteConfig: SiteConfig = {
         { icon: "PenTool", title: "Design & Prototipação", description: "Criamos protótipos interativos com seu branding aplicado ao Padrão Ravius." },
         { icon: "Code2", title: "Desenvolvimento", description: "Implementação modular com as melhores tecnologias, testes e disponibilidade total." },
         { icon: "Rocket", title: "Lançamento & Suporte", description: "Deploy em produção com monitoramento, analytics e suporte contínuo pós-lançamento." },
+      ],
+    },
+    {
+      id: "contact",
+      type: "contact",
+    },
+    {
+      id: "logos",
+      type: "logobar",
+      title: "Empresas que",
+      highlight: "confiam",
+      description: "Parceiros e clientes que já utilizam o Padrão Ravius em seus projetos.",
+      logos: [
+        { name: "Clínica Visage", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Visage&font=outfit" },
+        { name: "Aura Spa", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Aura+Spa&font=outfit" },
+        { name: "Dog no molho", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=DognoMolho&font=outfit" },
+        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" },
+        { name: "Dog no molho", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=MolhonoDog&font=outfit" },
+        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" },
       ],
     },
     {
@@ -289,35 +304,6 @@ export const siteConfig: SiteConfig = {
           content: "Ter uma landing page que reflete a identidade do meu estúdio era essencial. O Ravius entregou isso com uma arquitetura que minha equipe de marketing consegue atualizar sozinha.",
           avatarUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
         },
-      ],
-    },
-    {
-      id: "logos",
-      type: "logobar",
-      title: "Empresas que",
-      highlight: "confiam",
-      description: "Parceiros e clientes que já utilizam o Padrão Ravius em seus projetos.",
-      logos: [
-        { name: "Clínica Vitale", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Vitale&font=outfit" },
-        { name: "Aura Spa", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Aura+Spa&font=outfit" },
-        { name: "Studio Lumière", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Lumière&font=outfit" },
-        { name: "Dermavita", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Dermavita&font=outfit" },
-        { name: "ZenFlow", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=ZenFlow&font=outfit" },
-        { name: "NeoHealth", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=NeoHealth&font=outfit" },
-        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" },
-      ],
-    },
-    {
-      id: "team",
-      type: "team",
-      title: "Quem está por",
-      highlight: "trás",
-      description: "Conheça a equipe que desenha, desenvolve e mantém o Padrão Ravius.",
-      members: [
-        { name: "Samuel Oliveira", role: "Arquiteto Front-end", photoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" },
-        { name: "Mariana Silva", role: "UI/UX Designer", photoUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face" },
-        { name: "Lucas Andrade", role: "Engenheiro Full-stack", photoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face" },
-        { name: "Isabela Costa", role: "Estrategista Digital", photoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face" },
       ],
     },
     {

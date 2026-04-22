@@ -37,6 +37,10 @@ const renderBlock = (block: ContentBlockConfig) => {
       return <TeamContentBlock key={block.id} data={block} />;
     case "stats":
       return <StatsContentBlock key={block.id} data={block} />;
+    case "contact":
+      return <ContactForm key={block.id} />;
+    case "experiences":
+      return <ExperiencesGrid key={block.id} />;
   }
 };
 
@@ -54,8 +58,6 @@ const Index = () => {
 
       {siteConfig.contentBlocks.map(renderBlock)}
 
-      <ExperiencesGrid />
-      <ContactForm />
       <Footer />
     </div>
   );
