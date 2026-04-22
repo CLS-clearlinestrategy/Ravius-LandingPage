@@ -1,5 +1,6 @@
 import { useEffect, useCallback } from 'react';
-import gsap from 'gsap';
+// ─── Centralized GSAP module: single registration, no duplicate side-effects ──
+import { gsap } from '@/lib/gsap';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export interface CountUpProps {

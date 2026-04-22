@@ -6,7 +6,12 @@ export interface NavLink {
 
 
 export interface BackgroundGifConfig {
+  /** @deprecated — kept for reference. Use videoWebm / videoMp4 instead. */
   gifUrl: string;
+  /** WebM (VP9) — primary format: ~60% smaller, GPU-composited */
+  videoWebm?: string;
+  /** MP4 (H.264) — Safari / iOS fallback */
+  videoMp4?: string;
   overlayColor: string;
   blur: string;
 }
@@ -177,7 +182,13 @@ export const siteConfig: SiteConfig = {
   ],
 
   backgroundGif: {
+    // ─── GIF source (kept for reference / emergency fallback) ───────────────
     gifUrl: "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmpxcXoxN252N3R2MzZzaTRvcGJzNHY5MDJ2aXNzM3hranRtdXI0dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3BZHlKZbrJwL0buDOc/giphy.gif",
+    // ─── Preferred: local looping video (add files to /public after encoding) ─
+    // Convert with: ffmpeg -i input.gif -c:v libvpx-vp9 -b:v 0 -crf 40 -an /public/bg-loop.webm
+    //               ffmpeg -i input.gif -c:v libx264 -crf 35 -an /public/bg-loop.mp4
+    videoWebm: "/bg-loop.webm",
+    videoMp4: "/bg-loop.mp4",
     overlayColor: "bg-black/80",
     blur: "blur-3xl",
   },

@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+// ─── Centralized GSAP module: single registration, no duplicate side-effects ──
+import { gsap } from "@/lib/gsap";
 
 export function useSmoothScroll() {
   const lenisRef = useRef<Lenis | null>(null);
@@ -13,11 +15,15 @@ export function useSmoothScroll() {
 
     lenisRef.current = lenis;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+    // ─── Single coordinated RAF: GSAP drives Lenis ───────────────────────────
+    // Both share one 60/90/120 Hz loop → eliminates scroll-jitter from
+    // out-of-phase requestAnimationFrame calls competing for the frame budget.
+    const onTick = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(onTick);
+
+    // Prevents GSAP from compensating for elapsed time after a tab loses focus,
+    // which would cause a jarring "catch-up" jump when the user returns.
+    gsap.ticker.lagSmoothing(0);
 
     // Handle anchor clicks
     const onClick = (e: MouseEvent) => {
@@ -39,6 +45,7 @@ export function useSmoothScroll() {
 
     return () => {
       document.removeEventListener("click", onClick);
+      gsap.ticker.remove(onTick);
       lenis.destroy();
     };
   }, []);

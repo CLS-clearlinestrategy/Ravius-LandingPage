@@ -1,52 +1,139 @@
+import { lazy, Suspense, useEffect } from "react";
 import { siteConfig, ContentBlockConfig } from "@/config/siteConfig";
 import { useSmoothScroll } from "@/hooks/useSmoothScroll";
 import { useHeroVisibility } from "@/hooks/useHeroVisibility";
-import Navbar from "@/components/layout/Navbar";
 
-import ContentBlock from "@/sections/ContentBlock";
-import VideoContentBlock from "@/sections/VideoContentBlock";
-import FeaturesContentBlock from "@/sections/FeaturesContentBlock";
-import FAQContentBlock from "@/sections/FAQContentBlock";
-import TestimonialsContentBlock from "@/sections/TestimonialsContentBlock";
-import LogoBarContentBlock from "@/sections/LogoBarContentBlock";
-import ProcessContentBlock from "@/sections/ProcessContentBlock";
-import TeamContentBlock from "@/sections/TeamContentBlock";
-import StatsContentBlock from "@/sections/StatsContentBlock";
-import ExperiencesGrid from "@/sections/ExperiencesGrid";
-import ContactForm from "@/sections/ContactForm";
-import Footer from "@/components/layout/Footer";
+// ─── Above the fold: static imports — these MUST be ready before first paint ──
+import Navbar from "@/components/layout/Navbar";
 import ScrollVideoSection from "@/sections/ScrollVideoSection";
+
+// ─── Below the fold: lazy imports — downloaded in the background, zero pop-in ─
+// Defining these at module scope (not inside the component) ensures React keeps
+// a stable reference across re-renders, preventing accidental double-fetches.
+const ContentBlock            = lazy(() => import("@/sections/ContentBlock"));
+const VideoContentBlock       = lazy(() => import("@/sections/VideoContentBlock"));
+const FeaturesContentBlock    = lazy(() => import("@/sections/FeaturesContentBlock"));
+const FAQContentBlock         = lazy(() => import("@/sections/FAQContentBlock"));
+const TestimonialsContentBlock = lazy(() => import("@/sections/TestimonialsContentBlock"));
+const LogoBarContentBlock     = lazy(() => import("@/sections/LogoBarContentBlock"));
+const ProcessContentBlock     = lazy(() => import("@/sections/ProcessContentBlock"));
+const TeamContentBlock        = lazy(() => import("@/sections/TeamContentBlock"));
+const StatsContentBlock       = lazy(() => import("@/sections/StatsContentBlock"));
+const ExperiencesGrid         = lazy(() => import("@/sections/ExperiencesGrid"));
+const ContactForm             = lazy(() => import("@/sections/ContactForm"));
+const Footer                  = lazy(() => import("@/components/layout/Footer"));
+
+// ─── Height-preserving Suspense skeleton ────────────────────────────────────
+// Prevents layout shift while a lazy chunk loads. The height estimate ensures
+// Lenis scroll positions remain accurate even before sections are hydrated.
+function SectionSkeleton({ minHeight = "500px" }: { minHeight?: string }) {
+  return <div style={{ minHeight }} aria-hidden="true" />;
+}
 
 const renderBlock = (block: ContentBlockConfig) => {
   switch (block.type) {
     case "image":
-      return <ContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="700px" />}>
+          <ContentBlock data={block} />
+        </Suspense>
+      );
     case "video":
-      return <VideoContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="600px" />}>
+          <VideoContentBlock data={block} />
+        </Suspense>
+      );
     case "features":
-      return <FeaturesContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="700px" />}>
+          <FeaturesContentBlock data={block} />
+        </Suspense>
+      );
     case "faq":
-      return <FAQContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="500px" />}>
+          <FAQContentBlock data={block} />
+        </Suspense>
+      );
     case "testimonials":
-      return <TestimonialsContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="500px" />}>
+          <TestimonialsContentBlock data={block} />
+        </Suspense>
+      );
     case "logobar":
-      return <LogoBarContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="200px" />}>
+          <LogoBarContentBlock data={block} />
+        </Suspense>
+      );
     case "process":
-      return <ProcessContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="600px" />}>
+          <ProcessContentBlock data={block} />
+        </Suspense>
+      );
     case "team":
-      return <TeamContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="500px" />}>
+          <TeamContentBlock data={block} />
+        </Suspense>
+      );
     case "stats":
-      return <StatsContentBlock key={block.id} data={block} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="300px" />}>
+          <StatsContentBlock data={block} />
+        </Suspense>
+      );
     case "contact":
-      return <ContactForm key={block.id} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="500px" />}>
+          <ContactForm />
+        </Suspense>
+      );
     case "experiences":
-      return <ExperiencesGrid key={block.id} />;
+      return (
+        <Suspense key={block.id} fallback={<SectionSkeleton minHeight="600px" />}>
+          <ExperiencesGrid />
+        </Suspense>
+      );
   }
 };
 
 const Index = () => {
   useSmoothScroll();
   const { heroRef, isHeroVisible } = useHeroVisibility();
+
+  // ─── Progressive prefetch via requestIdleCallback ─────────────────────────
+  // Triggers chunk downloads during the browser's idle time, immediately after
+  // the hero paints. By the time the user scrolls to section 2, the code is
+  // already parsed — eliminating any pop-in risk from lazy loading.
+  useEffect(() => {
+    const prefetch = () => {
+      import("@/sections/ContentBlock");
+      import("@/sections/VideoContentBlock");
+      import("@/sections/FeaturesContentBlock");
+      import("@/sections/FAQContentBlock");
+      import("@/sections/TestimonialsContentBlock");
+      import("@/sections/LogoBarContentBlock");
+      import("@/sections/ProcessContentBlock");
+      import("@/sections/TeamContentBlock");
+      import("@/sections/StatsContentBlock");
+      import("@/sections/ExperiencesGrid");
+      import("@/sections/ContactForm");
+      import("@/components/layout/Footer");
+    };
+
+    if ("requestIdleCallback" in window) {
+      const id = requestIdleCallback(prefetch, { timeout: 2000 });
+      return () => cancelIdleCallback(id);
+    } else {
+      // Fallback for Safari < 16 which lacks requestIdleCallback
+      const id = setTimeout(prefetch, 1500);
+      return () => clearTimeout(id);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -58,7 +145,9 @@ const Index = () => {
 
       {siteConfig.contentBlocks.map(renderBlock)}
 
-      <Footer />
+      <Suspense fallback={<SectionSkeleton minHeight="300px" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
