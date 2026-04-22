@@ -1,118 +1,41 @@
-# Create a component based in this react-bits component
-```
-import { useInView, useMotionValue, useSpring } from 'motion/react';
-import { useCallback, useEffect, useRef } from 'react';
+Refine your previous analysis with a more nuanced approach.
 
-interface CountUpProps {
-  to: number;
-  from?: number;
-  direction?: 'up' | 'down';
-  delay?: number;
-  duration?: number;
-  className?: string;
-  startWhen?: boolean;
-  separator?: string;
-  onStart?: () => void;
-  onEnd?: () => void;
-}
+This is a **visual-first landing page**, where animations, video, and perceived quality are core to conversion. The goal is NOT to reduce visual richness, but to **optimize delivery strategy**.
 
-export default function CountUp({
-  to,
-  from = 0,
-  direction = 'up',
-  delay = 0,
-  duration = 2,
-  className = '',
-  startWhen = true,
-  separator = '',
-  onStart,
-  onEnd
-}: CountUpProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const motionValue = useMotionValue(direction === 'down' ? to : from);
+### Adjust your approach:
 
-  const damping = 20 + 40 * (1 / duration);
-  const stiffness = 100 * (1 / duration);
+* Do NOT suggest removing animations or simplifying the UI
+* Prioritize **progressive loading**, not aggressive code splitting
+* Avoid recommendations that may cause visual pop-in or break scroll fluidity
+* Consider **perceived performance over raw metrics**
 
-  const springValue = useSpring(motionValue, {
-    damping,
-    stiffness
-  });
+### Focus on:
 
-  const isInView = useInView(ref, { once: true, margin: '0px' });
+1. **Progressive rendering strategy**
 
-  const getDecimalPlaces = (num: number): number => {
-    const str = num.toString();
-    if (str.includes('.')) {
-      const decimals = str.split('.')[1];
-      if (parseInt(decimals) !== 0) {
-        return decimals.length;
-      }
-    }
-    return 0;
-  };
+   * What should load immediately vs progressively?
+   * How to maintain seamless scroll experience with lazy-loaded sections?
 
-  const maxDecimals = Math.max(getDecimalPlaces(from), getDecimalPlaces(to));
+2. **Media delivery optimization**
 
-  const formatValue = useCallback(
-    (latest: number) => {
-      const hasDecimals = maxDecimals > 0;
+   * How to keep high visual quality while reducing initial load impact?
+   * Best strategy for hero video (timing, preload, mobile fallback)
 
-      const options: Intl.NumberFormatOptions = {
-        useGrouping: !!separator,
-        minimumFractionDigits: hasDecimals ? maxDecimals : 0,
-        maximumFractionDigits: hasDecimals ? maxDecimals : 0
-      };
+3. **Animation performance (without reducing complexity)**
 
-      const formattedNumber = Intl.NumberFormat('en-US', options).format(latest);
+   * How to coordinate GSAP + Lenis efficiently?
+   * Avoid competing RAF loops and frame drops
 
-      return separator ? formattedNumber.replace(/,/g, separator) : formattedNumber;
-    },
-    [maxDecimals, separator]
-  );
+4. **Critical path optimization**
 
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.textContent = formatValue(direction === 'down' ? to : from);
-    }
-  }, [from, to, direction, formatValue]);
+   * What is truly required for first meaningful paint?
+   * How to delay non-critical JS without visual degradation?
 
-  useEffect(() => {
-    if (isInView && startWhen) {
-      if (typeof onStart === 'function') {
-        onStart();
-      }
+### Output expectations:
 
-      const timeoutId = setTimeout(() => {
-        motionValue.set(direction === 'down' ? from : to);
-      }, delay * 1000);
+* Keep recommendations practical and implementation-focused
+* Highlight trade-offs (performance vs UX)
+* Suggest improvements that preserve or enhance perceived quality
+* Avoid generic “optimize” advice — be specific
 
-      const durationTimeoutId = setTimeout(
-        () => {
-          if (typeof onEnd === 'function') {
-            onEnd();
-          }
-        },
-        delay * 1000 + duration * 1000
-      );
-
-      return () => {
-        clearTimeout(timeoutId);
-        clearTimeout(durationTimeoutId);
-      };
-    }
-  }, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
-
-  useEffect(() => {
-    const unsubscribe = springValue.on('change', (latest: number) => {
-      if (ref.current) {
-        ref.current.textContent = formatValue(latest);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [springValue, formatValue]);
-
-  return <span className={className} ref={ref} />;
-}
-```
+This is not a typical app optimization. Treat it like a **high-end marketing landing page** where experience quality is as important as speed.

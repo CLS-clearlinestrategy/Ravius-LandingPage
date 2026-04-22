@@ -1,10 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { SplitText as GSAPSplitText } from 'gsap/SplitText';
-import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger, GSAPSplitText, useGSAP);
+// ─── Centralized GSAP module: single registration, no duplicate side-effects ──
+import { gsap, ScrollTrigger, SplitText as GSAPSplitText, useGSAP } from '@/lib/gsap';
 
 export interface SplitTextProps {
   text: string;
