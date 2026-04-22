@@ -20,14 +20,23 @@ const ProcessContentBlock = ({ data }: ProcessContentBlockProps) => {
   return (
     <section id={data.id} className="relative py-20 md:py-28 overflow-hidden">
       {/* Decorative parallax elements */}
-      <ParallaxLayer speed={0.15} className="absolute top-[10%] left-[5%] pointer-events-none select-none">
-        <div className="w-72 h-72 rounded-full bg-primary/5 blur-3xl" aria-hidden="true" />
+      <ParallaxLayer speed={0.2} className="absolute top-[10%] left-[5%] pointer-events-none select-none z-0">
+        <div className="w-64 h-64 rounded-full glass-bubble" style={{ animationDelay: '0s' }} aria-hidden="true" />
       </ParallaxLayer>
-      <ParallaxLayer speed={0.3} className="absolute bottom-[15%] right-[8%] pointer-events-none select-none">
-        <div className="w-56 h-56 rounded-full glass-glow" aria-hidden="true" />
+      <ParallaxLayer speed={0.35} className="absolute bottom-[10%] right-[8%] pointer-events-none select-none z-0">
+        <div className="w-56 h-56 rounded-full glass-bubble" style={{ animationDelay: '-2s' }} aria-hidden="true" />
       </ParallaxLayer>
-      <ParallaxLayer speed={-0.1} className="absolute top-[55%] left-[70%] pointer-events-none select-none">
-        <div className="w-40 h-40 rounded-full bg-secondary/5 blur-2xl" aria-hidden="true" />
+      <ParallaxLayer speed={-0.15} className="absolute top-[40%] left-[75%] pointer-events-none select-none z-0">
+        <div className="w-40 h-40 rounded-full glass-bubble" style={{ animationDelay: '-4s' }} aria-hidden="true" />
+      </ParallaxLayer>
+      <ParallaxLayer speed={0.1} className="absolute bottom-[30%] left-[10%] pointer-events-none select-none z-0">
+        <div className="w-24 h-24 rounded-full glass-bubble" style={{ animationDelay: '-1s' }} aria-hidden="true" />
+      </ParallaxLayer>
+      <ParallaxLayer speed={0.5} className="absolute top-[60%] left-[20%] pointer-events-none select-none z-0 opacity-50 blur-xl">
+        <div className="w-16 h-16 rounded-full bg-primary/20" aria-hidden="true" />
+      </ParallaxLayer>
+      <ParallaxLayer speed={-0.2} className="absolute top-[20%] right-[30%] pointer-events-none select-none z-0 opacity-30 blur-2xl">
+        <div className="w-32 h-32 rounded-full bg-secondary/30" aria-hidden="true" />
       </ParallaxLayer>
 
       <div className="container mx-auto px-6 relative z-10">
