@@ -185,7 +185,7 @@ export const siteConfig: SiteConfig = {
 
 
   scrollVideo: {
-    src: "/video-underwater-optimized.mp4",
+    src: "/video-underwater-op.mp4",
     scrollHeight: "300vh",
     videoOpacity: 0.5,
     slides: [
