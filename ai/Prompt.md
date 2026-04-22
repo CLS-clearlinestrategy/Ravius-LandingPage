@@ -1,41 +1,21 @@
-Refine your previous analysis with a more nuanced approach.
+🧠 1. Suavizar o tempo do vídeo (LERP)
+📍 Contexto do problema
 
-This is a **visual-first landing page**, where animations, video, and perceived quality are core to conversion. The goal is NOT to reduce visual richness, but to **optimize delivery strategy**.
+Você percebe que:
 
-### Adjust your approach:
+quando dá um scroll pequeno → o vídeo desacelera antes de chegar no frame correto
+parece que “falta fluidez” no final do movimento
+sensação de FPS baixo, mas não é performance real
+🎯 O que está errado
 
-* Do NOT suggest removing animations or simplifying the UI
-* Prioritize **progressive loading**, not aggressive code splitting
-* Avoid recommendations that may cause visual pop-in or break scroll fluidity
-* Consider **perceived performance over raw metrics**
+O vídeo está seguindo o scroll instantaneamente, mas o scroll tem easing → desaceleração.
 
-### Focus on:
+💡 O que essa solução faz
 
-1. **Progressive rendering strategy**
+Cria um “atraso inteligente”:
 
-   * What should load immediately vs progressively?
-   * How to maintain seamless scroll experience with lazy-loaded sections?
-
-2. **Media delivery optimization**
-
-   * How to keep high visual quality while reducing initial load impact?
-   * Best strategy for hero video (timing, preload, mobile fallback)
-
-3. **Animation performance (without reducing complexity)**
-
-   * How to coordinate GSAP + Lenis efficiently?
-   * Avoid competing RAF loops and frame drops
-
-4. **Critical path optimization**
-
-   * What is truly required for first meaningful paint?
-   * How to delay non-critical JS without visual degradation?
-
-### Output expectations:
-
-* Keep recommendations practical and implementation-focused
-* Highlight trade-offs (performance vs UX)
-* Suggest improvements that preserve or enhance perceived quality
-* Avoid generic “optimize” advice — be specific
-
-This is not a typical app optimization. Treat it like a **high-end marketing landing page** where experience quality is as important as speed.
+o scroll define um alvo
+o vídeo vai chegando até ele suavemente
+✅ Quando usar
+sempre que houver smooth scroll
+quando o problema for “freada” ou falta de fluidez

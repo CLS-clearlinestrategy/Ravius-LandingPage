@@ -3,6 +3,8 @@ import Lenis from "lenis";
 // ─── Centralized GSAP module: single registration, no duplicate side-effects ──
 import { gsap } from "@/lib/gsap";
 
+export let globalLenis: Lenis | null = null;
+
 export function useSmoothScroll() {
   const lenisRef = useRef<Lenis | null>(null);
 
@@ -14,6 +16,7 @@ export function useSmoothScroll() {
     });
 
     lenisRef.current = lenis;
+    globalLenis = lenis;
 
     // ─── Single coordinated RAF: GSAP drives Lenis ───────────────────────────
     // Both share one 60/90/120 Hz loop → eliminates scroll-jitter from
@@ -47,6 +50,7 @@ export function useSmoothScroll() {
       document.removeEventListener("click", onClick);
       gsap.ticker.remove(onTick);
       lenis.destroy();
+      if (globalLenis === lenis) globalLenis = null;
     };
   }, []);
 
