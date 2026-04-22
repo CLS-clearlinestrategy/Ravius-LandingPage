@@ -1,9 +1,8 @@
-# Create a component based in this react-bits component
-```
-import { useInView, useMotionValue, useSpring } from 'motion/react';
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useCallback } from 'react';
+import gsap from 'gsap';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-interface CountUpProps {
+export interface CountUpProps {
   to: number;
   from?: number;
   direction?: 'up' | 'down';
@@ -28,18 +27,7 @@ export default function CountUp({
   onStart,
   onEnd
 }: CountUpProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const motionValue = useMotionValue(direction === 'down' ? to : from);
-
-  const damping = 20 + 40 * (1 / duration);
-  const stiffness = 100 * (1 / duration);
-
-  const springValue = useSpring(motionValue, {
-    damping,
-    stiffness
-  });
-
-  const isInView = useInView(ref, { once: true, margin: '0px' });
+  const { ref, isVisible } = useScrollReveal<HTMLSpanElement>(0);
 
   const getDecimalPlaces = (num: number): number => {
     const str = num.toString();
@@ -71,48 +59,44 @@ export default function CountUp({
     [maxDecimals, separator]
   );
 
+  // Set initial value
   useEffect(() => {
     if (ref.current) {
       ref.current.textContent = formatValue(direction === 'down' ? to : from);
     }
-  }, [from, to, direction, formatValue]);
+  }, [from, to, direction, formatValue, ref]);
 
+  // Animate value when in view
   useEffect(() => {
-    if (isInView && startWhen) {
-      if (typeof onStart === 'function') {
-        onStart();
-      }
-
-      const timeoutId = setTimeout(() => {
-        motionValue.set(direction === 'down' ? from : to);
-      }, delay * 1000);
-
-      const durationTimeoutId = setTimeout(
-        () => {
-          if (typeof onEnd === 'function') {
-            onEnd();
+    if (isVisible && startWhen && ref.current) {
+      const targetValue = direction === 'down' ? from : to;
+      const startValue = direction === 'down' ? to : from;
+      
+      const obj = { val: startValue };
+      
+      const animation = gsap.to(obj, {
+        val: targetValue,
+        duration: duration,
+        delay: delay,
+        ease: "power2.out",
+        onStart: () => {
+          if (typeof onStart === 'function') onStart();
+        },
+        onUpdate: () => {
+          if (ref.current) {
+            ref.current.textContent = formatValue(obj.val);
           }
         },
-        delay * 1000 + duration * 1000
-      );
+        onComplete: () => {
+          if (typeof onEnd === 'function') onEnd();
+        }
+      });
 
       return () => {
-        clearTimeout(timeoutId);
-        clearTimeout(durationTimeoutId);
+        animation.kill();
       };
     }
-  }, [isInView, startWhen, motionValue, direction, from, to, delay, onStart, onEnd, duration]);
-
-  useEffect(() => {
-    const unsubscribe = springValue.on('change', (latest: number) => {
-      if (ref.current) {
-        ref.current.textContent = formatValue(latest);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [springValue, formatValue]);
+  }, [isVisible, startWhen, direction, from, to, delay, duration, formatValue, onStart, onEnd, ref]);
 
   return <span className={className} ref={ref} />;
 }
-```

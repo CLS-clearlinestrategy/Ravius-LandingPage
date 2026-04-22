@@ -2,6 +2,7 @@ import { FAQBlockConfig } from "@/config/siteConfig";
 import { useState } from "react";
 import RevealBlock from "@/components/core/RevealBlock";
 import SplitText from "@/components/core/SplitText";
+import { ArrowRight, ArrowUp } from "lucide-react";
 
 interface FAQContentBlockProps {
   data: FAQBlockConfig;
@@ -68,17 +69,15 @@ const FAQContentBlock = ({ data }: FAQContentBlockProps) => {
                   >
                     <span>{item.question}</span>
                     <span
-                      className={`ml-4 shrink-0 text-primary transition-transform duration-300 ${
-                        isOpen ? "rotate-45" : "rotate-0"
-                      }`}
+                      className={`ml-4 shrink-0 text-primary transition-transform duration-300 ${isOpen ? "rotate-45" : "rotate-0"
+                        }`}
                     >
                       +
                     </span>
                   </button>
                   <div
-                    className={`grid transition-all duration-300 ease-out ${
-                      isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                    }`}
+                    className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      }`}
                   >
                     <div className="overflow-hidden">
                       <p className="px-6 pb-5 text-muted-foreground leading-relaxed">
@@ -90,6 +89,20 @@ const FAQContentBlock = ({ data }: FAQContentBlockProps) => {
               </RevealBlock>
             );
           })}
+        </div>
+        <div className="flex justify-center gap-4 pt-4 pointer-events-auto pt-10">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-5 px-8 py-3 border-2 border-white/20 text-white rounded-full 
+               transition-all duration-300 ease-in-out
+               bg-white/5 
+               shadow-[0_0_15px_rgba(255,255,255,0.05)] 
+               hover:shadow-[0_0_25px_rgba(255,255,255,0.15)] 
+               hover:bg-white/10 hover:border-white/40 hover:scale-[1.02]"
+          >
+            <span className="font-medium">Agende agora uma reunião</span>
+            <ArrowUp className="w-5 h-5 transition-transform group-hover:translate-y-[-2px]" />
+          </a>
         </div>
       </div>
     </section>

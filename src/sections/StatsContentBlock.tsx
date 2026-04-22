@@ -2,6 +2,7 @@ import { StatsBlockConfig } from "@/config/siteConfig";
 import RevealBlock from "@/components/core/RevealBlock";
 import SplitText from "@/components/core/SplitText";
 import ParallaxLayer from "@/components/core/ParallaxLayer";
+import CountUp from "@/components/core/CountUp";
 
 interface StatsContentBlockProps {
   data: StatsBlockConfig;
@@ -58,18 +59,30 @@ const StatsContentBlock = ({ data }: StatsContentBlockProps) => {
 
         {/* Stats grid */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          {data.stats.map((stat, i) => (
-            <RevealBlock key={i} delay={i * 100}>
-              <div className="glass-subtle rounded-2xl p-6 text-center hover:glass-strong transition-all duration-500">
-                <span className="block text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-primary to-primary/60 bg-clip-text text-transparent mb-2">
-                  {stat.value}
-                </span>
-                <span className="text-sm text-muted-foreground">
-                  {stat.label}
-                </span>
-              </div>
-            </RevealBlock>
-          ))}
+          {data.stats.map((stat, i) => {
+            const match = stat.value.match(/^([^0-9.-]*)([0-9.-]+)(.*)$/);
+            
+            return (
+              <RevealBlock key={i} delay={i * 100}>
+                <div className="glass-subtle rounded-2xl p-6 text-center hover:glass-strong transition-all duration-500">
+                  <span className="flex items-center justify-center text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-primary to-primary/60 bg-clip-text text-transparent mb-2">
+                    {match ? (
+                      <>
+                        {match[1] && <span>{match[1]}</span>}
+                        <CountUp to={parseFloat(match[2])} duration={2.5} delay={i * 0.1} />
+                        {match[3] && <span>{match[3]}</span>}
+                      </>
+                    ) : (
+                      stat.value
+                    )}
+                  </span>
+                  <span className="text-sm text-muted-foreground">
+                    {stat.label}
+                  </span>
+                </div>
+              </RevealBlock>
+            );
+          })}
         </div>
       </div>
     </section>
