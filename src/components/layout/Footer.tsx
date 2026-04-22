@@ -1,9 +1,12 @@
 import { siteConfig } from "@/config/siteConfig";
-import { Github, Twitter } from "lucide-react";
-
+import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Mail } from "lucide-react";
 const socialIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Github,
   Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
 };
 
 const Footer = () => {

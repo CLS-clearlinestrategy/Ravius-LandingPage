@@ -172,8 +172,7 @@ export const siteConfig: SiteConfig = {
 
   nav: [
     { label: "Início", href: "#scroll-video" },
-    { label: "Sobre", href: "#about" },
-    { label: "Experiências", href: "#experiences" },
+    { label: "Serviços", href: "#differentials" },
     { label: "Contato", href: "#contact" },
   ],
 
@@ -290,19 +289,19 @@ export const siteConfig: SiteConfig = {
           name: "Dra. Camila",
           role: "Diretora Comercial",
           content: "Depois de adotar o Ravius, nosso agendamento online cresceu 240%. A landing page transmite exatamente a sofisticação que nossos pacientes esperam.",
-          avatarUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964ac31?w=100&h=100&fit=crop&crop=face",
+          avatarUrl: "https://plus.unsplash.com/premium_photo-1688740375397-34605b6abe48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODl8fGZhY2V8ZW58MHx8MHx8fDA%3D",
         },
         {
           name: "Cauã Lucas",
           role: "CEO",
-          content: "A velocidade de carregamento e as animações fluidas fizeram toda a diferença. Nossos clientes comentam sobre a experiência do site antes mesmo da primeira sessão.",
-          avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+          content: "O sistema desenvolvido por eles transformou nosso fluxo de trabalho. A equipe conseguiu produzir mais em menos tempo, com muito mais organização e eficiência em cada etapa do processo.",
+          avatarUrl: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGZhY2V8ZW58MHx8MHx8fDA%3D",
         },
         {
           name: "Ana Beatriz",
           role: "Fundadora — OldAndRude",
           content: "Ter uma landing page que reflete a identidade do meu estúdio era essencial. O Ravius entregou isso com uma arquitetura que minha equipe de marketing consegue atualizar sozinha.",
-          avatarUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+          avatarUrl: "https://images.unsplash.com/photo-1661694134633-a97b382ddeb9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fGZhY2UlMjBhbWF0ZXVyfGVufDB8fDB8fHww"
         },
       ],
     },
@@ -311,29 +310,41 @@ export const siteConfig: SiteConfig = {
       type: "faq",
       title: "Perguntas",
       highlight: "frequentes",
-      description: "Tire suas dúvidas sobre o Padrão Ravius e como ele pode ajudar seu negócio.",
+      description: "Respostas diretas para as dúvidas mais comuns antes de contratar a Ravius.",
       questions: [
         {
-          question: "O que é o Padrão Ravius?",
-          answer: "É uma arquitetura front-end modular e tipada, projetada para criar landing pages de alta performance. Ele separa dados, lógica e visual em camadas independentes, permitindo escalar e personalizar sem reescrever código.",
+          question: "Isso realmente vai trazer resultado ou é só mais um site bonito?",
+          answer: "Nosso foco não é só estética — é performance. Cada projeto é pensado para gerar conversão, velocidade e clareza na comunicação. Um site bonito sem resultado não faz sentido para nós.",
         },
         {
-          question: "Preciso saber programar para usar?",
-          answer: "Para personalizar conteúdo, não — basta editar o arquivo siteConfig.ts. Para criar novos componentes ou alterar o comportamento, conhecimentos de React e TypeScript são recomendados.",
+          question: "Por que eu não deveria usar um template pronto ou plataforma como Wix?",
+          answer: "Você até pode — e em alguns casos faz sentido. Mas templates limitam crescimento, performance e diferenciação. Nós criamos soluções sob medida, pensadas para escalar junto com o seu negócio.",
         },
         {
-          question: "Qual o tempo médio de implementação?",
-          answer: "Um projeto completo com branding personalizado é entregue em 2 a 4 semanas. Projetos que usam o template base podem estar no ar em poucos dias.",
+          question: "E se eu precisar mudar algo depois que estiver pronto?",
+          answer: "Você não fica preso. Estruturamos tudo para facilitar mudanças rápidas — seja conteúdo simples ou evolução do produto. Além disso, oferecemos suporte contínuo.",
         },
         {
-          question: "O Ravius funciona com qualquer back-end?",
-          answer: "Sim. Como é uma solução puramente front-end (React + Vite), ele pode consumir qualquer API REST ou GraphQL. A integração com Supabase, Firebase ou back-ends customizados é direta.",
+          question: "Como sei que não vou ter dor de cabeça com o projeto?",
+          answer: "Trabalhamos com processos claros, prazos definidos e comunicação constante. Você sempre sabe o que está sendo feito e em que etapa estamos.",
         },
         {
-          question: "Há suporte após o lançamento?",
-          answer: "Oferecemos planos de suporte contínuo que incluem atualizações de dependências, monitoramento de performance e ajustes de conteúdo sob demanda.",
+          question: "Isso é só para empresas grandes ou funciona para negócios menores também?",
+          answer: "Funciona para ambos. Adaptamos a solução ao momento do seu negócio — desde páginas rápidas para validação até sistemas mais robustos.",
         },
-      ],
+        {
+          question: "O que acontece se meu negócio crescer?",
+          answer: "Ótimo — o projeto já nasce preparado para isso. Nossa arquitetura permite escalar sem precisar reconstruir tudo do zero.",
+        },
+        {
+          question: "Vocês somem depois da entrega?",
+          answer: "Não. Podemos continuar acompanhando seu projeto com melhorias, otimizações e suporte técnico sempre que você precisar.",
+        },
+        {
+          question: "Como funciona o início do projeto?",
+          answer: "Começamos entendendo seu negócio, objetivos e público. A partir disso, definimos a melhor estrutura e seguimos com desenvolvimento de forma transparente.",
+        },
+      ]
     },
   ],
 
@@ -367,8 +378,8 @@ export const siteConfig: SiteConfig = {
     copyright: `© ${new Date().getFullYear()} Ravius. Todos os direitos reservados.`,
     tagline: "Construído com o Padrão Ravius.",
     socials: [
-      { platform: "GitHub", url: "https://github.com", icon: "Github" },
-      { platform: "Twitter", url: "https://twitter.com", icon: "Twitter" },
+      { platform: "Instagram", url: "https://www.instagram.com/ravius.dev/", icon: "Instagram" },
+      { platform: "Email", url: "mailto:clearstrategyline@gmail.com", icon: "Mail" },
     ],
   },
 };

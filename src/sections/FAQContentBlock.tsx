@@ -3,6 +3,8 @@ import { useState } from "react";
 import RevealBlock from "@/components/core/RevealBlock";
 import SplitText from "@/components/core/SplitText";
 import { ArrowRight, ArrowUp } from "lucide-react";
+import { BackgroundGif } from "@/components/core/BackgroundGif";
+import { SectionFade } from "@/components/core/SectionFade";
 
 interface FAQContentBlockProps {
   data: FAQBlockConfig;
@@ -15,7 +17,9 @@ const FAQContentBlock = ({ data }: FAQContentBlockProps) => {
     setOpenIndex((prev) => (prev === i ? null : i));
 
   return (
-    <section id={data.id} className="py-20 md:py-28">
+    <section id={data.id} className="py-20 md:py-28 relative">
+      <SectionFade position="top" color="hsl(var(--background))" height="150px" />
+      <BackgroundGif gifUrl="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTlta3MyY3o3aDhxaDlvY2MxeTRya25zbzZ4aHQ5YXFrcXE3OXJ2bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1SE35yh3VLeF8ADUb9/giphy.gif" blur="blur-sm" />
       <div className="container mx-auto px-6">
         {/* Header */}
         <RevealBlock className="text-center mb-14 max-w-2xl mx-auto">
@@ -90,7 +94,7 @@ const FAQContentBlock = ({ data }: FAQContentBlockProps) => {
             );
           })}
         </div>
-        <div className="flex justify-center gap-4 pt-4 pointer-events-auto pt-10">
+        <div className="flex justify-center gap-4 pt-10 pointer-events-auto">
           <a
             href="#contact"
             className="inline-flex items-center gap-5 px-8 py-3 border-2 border-white/20 text-white rounded-full 
