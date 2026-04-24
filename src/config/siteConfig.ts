@@ -253,7 +253,7 @@ export const siteConfig: SiteConfig = {
       highlight: "ação",
       description:
         "Assista como o Padrão Ravius acelera a criação de interfaces modernas com scroll suave, parallax e animações baseadas em física real.",
-      videoUrl: "https://www.youtube.com/embed/CLRaEAPfo6c",
+      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       posterImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
       videoPosition: "left",
     },
