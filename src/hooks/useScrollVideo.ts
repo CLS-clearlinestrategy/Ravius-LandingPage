@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { globalLenis } from "@/hooks/useSmoothScroll";
 
 export interface ScrollVideoConfig {
   /** Smoothing factor 0–1 (lower = smoother, higher = snappier). Default: 0.08 */
@@ -99,8 +100,12 @@ export function useScrollVideo(
       return;
     }
 
-    /* How far the top edge has scrolled past the viewport top */
-    const scrolled = -rect.top;
+    /* We need the absolute top of the container to calculate progress against target scroll */
+    const absoluteTop = rect.top + window.scrollY;
+    const targetScrollY = globalLenis ? globalLenis.targetScroll : window.scrollY;
+
+    /* How far the top edge will be scrolled past the viewport top at the target scroll */
+    const scrolled = targetScrollY - absoluteTop;
     const raw = scrolled / scrollableHeight;
     targetProgress.current = Math.max(0, Math.min(1, raw));
   }, [disabled]);
