@@ -6,11 +6,11 @@ export interface NavLink {
 
 
 export interface BackgroundGifConfig {
-  /** @deprecated — kept for reference. Use videoWebm / videoMp4 instead. */
+  /** @deprecated kept for reference. Use videoWebm / videoMp4 instead. */
   gifUrl: string;
-  /** WebM (VP9) — primary format: ~60% smaller, GPU-composited */
+  /** WebM (VP9) primary format: ~60% smaller, GPU-composited */
   videoWebm?: string;
-  /** MP4 (H.264) — Safari / iOS fallback */
+  /** MP4 (H.264) Safari / iOS fallback */
   videoMp4?: string;
   overlayColor: string;
   blur: string;
@@ -310,7 +310,7 @@ export const siteConfig: SiteConfig = {
         },
         {
           name: "Ana Beatriz",
-          role: "Fundadora — OldAndRude",
+          role: "Fundadora OldAndRude",
           content: "Ter uma landing page que reflete a identidade do meu estúdio era essencial. O Ravius entregou isso com uma arquitetura que minha equipe de marketing consegue atualizar sozinha.",
           avatarUrl: "https://images.unsplash.com/photo-1661694134633-a97b382ddeb9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fGZhY2UlMjBhbWF0ZXVyfGVufDB8fDB8fHww"
         },
@@ -325,15 +325,15 @@ export const siteConfig: SiteConfig = {
       questions: [
         {
           question: "Isso realmente vai trazer resultado ou é só mais um site bonito?",
-          answer: "Nosso foco não é só estética — é performance. Cada projeto é pensado para gerar conversão, velocidade e clareza na comunicação. Um site bonito sem resultado não faz sentido para nós.",
+          answer: "Nosso foco não é só estética é performance. Cada projeto é pensado para gerar conversão, velocidade e clareza na comunicação. Um site bonito sem resultado não faz sentido para nós.",
         },
         {
           question: "Por que eu não deveria usar um template pronto ou plataforma como Wix?",
-          answer: "Você até pode — e em alguns casos faz sentido. Mas templates limitam crescimento, performance e diferenciação. Nós criamos soluções sob medida, pensadas para escalar junto com o seu negócio.",
+          answer: "Você até pode e em alguns casos faz sentido. Mas templates limitam crescimento, performance e diferenciação. Nós criamos soluções sob medida, pensadas para escalar junto com o seu negócio.",
         },
         {
           question: "E se eu precisar mudar algo depois que estiver pronto?",
-          answer: "Você não fica preso. Estruturamos tudo para facilitar mudanças rápidas — seja conteúdo simples ou evolução do produto. Além disso, oferecemos suporte contínuo.",
+          answer: "Você não fica preso. Estruturamos tudo para facilitar mudanças rápidas seja conteúdo simples ou evolução do produto. Além disso, oferecemos suporte contínuo.",
         },
         {
           question: "Como sei que não vou ter dor de cabeça com o projeto?",
@@ -341,11 +341,11 @@ export const siteConfig: SiteConfig = {
         },
         {
           question: "Isso é só para empresas grandes ou funciona para negócios menores também?",
-          answer: "Funciona para ambos. Adaptamos a solução ao momento do seu negócio — desde páginas rápidas para validação até sistemas mais robustos.",
+          answer: "Funciona para ambos. Adaptamos a solução ao momento do seu negócio desde páginas rápidas para validação até sistemas mais robustos.",
         },
         {
           question: "O que acontece se meu negócio crescer?",
-          answer: "Ótimo — o projeto já nasce preparado para isso. Nossa arquitetura permite escalar sem precisar reconstruir tudo do zero.",
+          answer: "Ótimo o projeto já nasce preparado para isso. Nossa arquitetura permite escalar sem precisar reconstruir tudo do zero.",
         },
         {
           question: "Vocês somem depois da entrega?",
