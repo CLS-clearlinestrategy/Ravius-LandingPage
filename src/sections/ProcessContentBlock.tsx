@@ -87,34 +87,35 @@ const ProcessContentBlock = ({ data }: ProcessContentBlockProps) => {
               const isEven = i % 2 === 0;
 
               return (
-                <RevealBlock key={i} delay={i * 150}>
-                  <div
-                    className={`relative flex flex-col sm:flex-row items-start sm:items-center gap-6 ${
-                      isEven ? "md:flex-row" : "md:flex-row-reverse"
+                <div
+                  className={`relative flex flex-col sm:flex-row items-start sm:items-center gap-6 ${isEven ? "md:flex-row" : "md:flex-row-reverse"
                     }`}
-                  >
-                    <div className={`flex-1 ${isEven ? "md:text-right" : "md:text-left"}`}>
-                      <div className="glass-subtle rounded-2xl p-6 hover:glass-strong transition-all duration-500">
+                >
+                  <div className={`flex-1 ${isEven ? "md:text-right" : "md:text-left"}`}>
+                    <div className="glass-subtle rounded-2xl p-6 hover:glass-strong transition-all duration-500">
+                      <RevealBlock key={i} delay={i * 150}>
+
                         <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           {step.description}
                         </p>
-                      </div>
+                      </RevealBlock>
                     </div>
-
-                    <div className="relative z-10 shrink-0 w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center shadow-[0_0_20px_hsla(var(--primary),0.15)]">
-                      {Icon ? (
-                        <Icon className="w-5 h-5 text-primary" />
-                      ) : (
-                        <span className="text-sm font-bold text-primary">
-                          {i + 1}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="flex-1 hidden md:block" />
                   </div>
-                </RevealBlock>
+
+                  <div className="relative z-10 shrink-0 w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center shadow-[0_0_20px_hsla(var(--primary),0.15)]">
+                    {Icon ? (
+                      <Icon className="w-5 h-5 text-primary" />
+                    ) : (
+                      <span className="text-sm font-bold text-primary">
+                        {i + 1}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex-1 hidden md:block" />
+                </div>
+
               );
             })}
           </div>

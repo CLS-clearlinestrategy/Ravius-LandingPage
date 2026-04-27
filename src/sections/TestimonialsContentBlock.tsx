@@ -1,7 +1,6 @@
 import { TestimonialsBlockConfig } from "@/config/siteConfig";
 import RevealBlock from "@/components/core/RevealBlock";
 import SplitText from "@/components/core/SplitText";
-import ParallaxLayer from "@/components/core/ParallaxLayer";
 
 interface TestimonialsContentBlockProps {
   data: TestimonialsBlockConfig;
@@ -16,16 +15,6 @@ const TestimonialCard = ({ testimonial, index }: TestimonialCardProps) => {
   return (
     <RevealBlock delay={index * 120}>
       <div className="relative glass-strong rounded-2xl p-6 flex flex-col gap-5 transition-transform hover:-translate-y-1 duration-300 overflow-hidden">
-        {/* Decorative quote mark with parallax */}
-        <ParallaxLayer speed={0.05} className="absolute -top-2 -left-1 pointer-events-none select-none">
-          <span
-            className="text-[80px] leading-none font-serif text-primary/8"
-            aria-hidden="true"
-          >
-            "
-          </span>
-        </ParallaxLayer>
-
         {/* Quote */}
         <p className="relative z-10 text-foreground/90 leading-relaxed flex-1 italic">
           "{testimonial.content}"
