@@ -285,8 +285,10 @@ export const siteConfig: SiteConfig = {
         { name: "Aura Spa", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Aura+Spa&font=outfit" },
         { name: "Dog no molho", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=DognoMolho&font=outfit" },
         { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" },
-        { name: "Dog no molho", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=MolhonoDog&font=outfit" },
-        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" },
+        { name: "Clínica Visage", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Visage&font=outfit" },
+        { name: "Aura Spa", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Aura+Spa&font=outfit" },
+        { name: "Dog no molho", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=DognoMolho&font=outfit" },
+        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" }
       ],
     },
     {
@@ -299,7 +301,7 @@ export const siteConfig: SiteConfig = {
         {
           name: "Dra. Camila",
           role: "Diretora Comercial",
-          content: "Depois de adotar o Ravius, nosso agendamento online cresceu 240%. A landing page transmite exatamente a sofisticação que nossos pacientes esperam.",
+          content: "Depois de adotar a Ravius, nosso agendamento online cresceu 240%. A landing page transmite exatamente a sofisticação que nossos pacientes esperam.",
           avatarUrl: "https://plus.unsplash.com/premium_photo-1688740375397-34605b6abe48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODl8fGZhY2V8ZW58MHx8MHx8fDA%3D",
         },
         {
@@ -311,7 +313,7 @@ export const siteConfig: SiteConfig = {
         {
           name: "Ana Beatriz",
           role: "Fundadora OldAndRude",
-          content: "Ter uma landing page que reflete a identidade do meu estúdio era essencial. O Ravius entregou isso com uma arquitetura que minha equipe de marketing consegue atualizar sozinha.",
+          content: "Ter uma landing page que reflete a identidade do meu estúdio era essencial. A Ravius entregou isso com uma arquitetura que minha equipe de marketing consegue atualizar sozinha.",
           avatarUrl: "https://images.unsplash.com/photo-1661694134633-a97b382ddeb9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fGZhY2UlMjBhbWF0ZXVyfGVufDB8fDB8fHww"
         },
       ],
