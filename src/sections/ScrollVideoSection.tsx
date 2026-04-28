@@ -9,6 +9,19 @@ const ScrollVideoSection = () => {
 
   const scrollToSecondSlide = (e: React.MouseEvent) => {
     e.preventDefault();
+
+    if (window.innerWidth < 768) {
+      const targetSection = document.getElementById("differentials");
+      if (targetSection) {
+        if (globalLenis) {
+          globalLenis.scrollTo(targetSection, { duration: 1.5 });
+        } else {
+          targetSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+      return;
+    }
+
     const section = document.getElementById("scroll-video");
     if (section) {
       const rect = section.getBoundingClientRect();
