@@ -1,11 +1,28 @@
 import { siteConfig } from "@/config/siteConfig";
 import ScrollVideo from "@/components/core/ScrollVideo";
 import RevealBlock from "@/components/core/RevealBlock";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { globalLenis } from "@/hooks/useSmoothScroll";
 
 const ScrollVideoSection = () => {
   const { scrollVideo } = siteConfig;
+  
+  const scrollToSecondSlide = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById("scroll-video");
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      const top = rect.top + window.scrollY;
+      const scrollableHeight = section.offsetHeight - window.innerHeight;
+      const targetScroll = top + scrollableHeight * 0.7;
+      
+      if (globalLenis) {
+        globalLenis.scrollTo(targetScroll, { duration: 1.5 });
+      } else {
+        window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <section id="scroll-video">
@@ -60,24 +77,9 @@ const ScrollVideoSection = () => {
                           </RevealBlock>
                         )}
 
-                        <div className="flex gap-4 pt-4 pointer-events-auto">
+                         <div className="flex gap-4 pt-4 pointer-events-auto">
                           <button 
-                            onClick={(e) => {
-                              e.preventDefault();
-                              const section = document.getElementById("scroll-video");
-                              if (section) {
-                                const rect = section.getBoundingClientRect();
-                                const top = rect.top + window.scrollY;
-                                const scrollableHeight = section.offsetHeight - window.innerHeight;
-                                const targetScroll = top + scrollableHeight * 0.7;
-                                
-                                if (globalLenis) {
-                                  globalLenis.scrollTo(targetScroll, { duration: 1.5 });
-                                } else {
-                                  window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-                                }
-                              }
-                            }}
+                            onClick={scrollToSecondSlide}
                             className="px-6 py-3 bg-white text-zinc-950 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-white/90 transition-colors"
                           >
                             Comece agora <ArrowRight className="w-5 h-5" />
@@ -86,6 +88,15 @@ const ScrollVideoSection = () => {
                       </div>
                     </div>
                   </div>
+
+                  {/* Subtle scroll indicator */}
+                  <button 
+                    onClick={scrollToSecondSlide}
+                    className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity pointer-events-auto group"
+                  >
+                    <span className="text-xs uppercase tracking-widest font-medium">Scroll</span>
+                    <ChevronDown className="w-5 h-5 animate-bounce group-hover:translate-y-1 transition-transform" />
+                  </button>
                 </div>
               )}
 
