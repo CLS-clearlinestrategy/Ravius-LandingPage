@@ -19,41 +19,54 @@ const FeaturesContentBlock = ({ data }: FeaturesContentBlockProps) => {
     <section id={data.id} className="py-20 md:py-28">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-start gap-12 md:gap-16">
         {/* Left: Text */}
-        <RevealBlock className="flex-1 space-y-6 md:sticky md:top-32">
-          <h2 className="text-3xl md:text-4xl font-bold leading-tight">
-            <SplitText
-              text={data.title}
-              tag="span"
-              splitType="words"
-              delay={40}
-              duration={1}
-              ease="power3.out"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              className="inline"
-              textAlign="left"
-            />{" "}
-            {data.highlight && (
+        <div className="flex-1 relative">
+          {/* Subtle blue glows for life - ensuring circular shape */}
+          <div 
+            className="absolute -left-16 -top-16 w-96 aspect-square bg-primary/15 blur-[100px] rounded-full pointer-events-none" 
+            aria-hidden="true"
+          />
+          <div 
+            className="absolute left-0 top-0 w-64 aspect-square bg-blue-500/20 blur-[80px] rounded-full pointer-events-none animate-pulse" 
+            aria-hidden="true"
+            style={{ animationDuration: '4s' }}
+          />
+
+          <RevealBlock className="relative z-10 space-y-6 md:sticky md:top-32">
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
               <SplitText
-                text={data.highlight}
+                text={data.title}
                 tag="span"
-                splitType="chars"
-                delay={35}
-                duration={0.9}
+                splitType="words"
+                delay={40}
+                duration={1}
                 ease="power3.out"
-                from={{ opacity: 0, y: 25 }}
+                from={{ opacity: 0, y: 30 }}
                 to={{ opacity: 1, y: 0 }}
-                className="text-primary inline"
+                className="inline"
                 textAlign="left"
-              />
+              />{" "}
+              {data.highlight && (
+                <SplitText
+                  text={data.highlight}
+                  tag="span"
+                  splitType="chars"
+                  delay={35}
+                  duration={0.9}
+                  ease="power3.out"
+                  from={{ opacity: 0, y: 25 }}
+                  to={{ opacity: 1, y: 0 }}
+                  className="text-primary inline"
+                  textAlign="left"
+                />
+              )}
+            </h2>
+            {data.description && (
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                {data.description}
+              </p>
             )}
-          </h2>
-          {data.description && (
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              {data.description}
-            </p>
-          )}
-        </RevealBlock>
+          </RevealBlock>
+        </div>
 
         {/* Right: Feature grid */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-5">

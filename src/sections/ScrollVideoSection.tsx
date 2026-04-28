@@ -6,7 +6,7 @@ import { globalLenis } from "@/hooks/useSmoothScroll";
 
 const ScrollVideoSection = () => {
   const { scrollVideo } = siteConfig;
-  
+
   const scrollToSecondSlide = (e: React.MouseEvent) => {
     e.preventDefault();
     const section = document.getElementById("scroll-video");
@@ -15,7 +15,7 @@ const ScrollVideoSection = () => {
       const top = rect.top + window.scrollY;
       const scrollableHeight = section.offsetHeight - window.innerHeight;
       const targetScroll = top + scrollableHeight * 0.7;
-      
+
       if (globalLenis) {
         globalLenis.scrollTo(targetScroll, { duration: 1.5 });
       } else {
@@ -77,8 +77,8 @@ const ScrollVideoSection = () => {
                           </RevealBlock>
                         )}
 
-                         <div className="flex gap-4 pt-4 pointer-events-auto">
-                          <button 
+                        <div className="flex gap-4 pt-4 pointer-events-auto">
+                          <button
                             onClick={scrollToSecondSlide}
                             className="px-6 py-3 bg-white text-zinc-950 rounded-full flex items-center justify-center gap-2 font-semibold hover:bg-white/90 transition-colors"
                           >
@@ -90,11 +90,11 @@ const ScrollVideoSection = () => {
                   </div>
 
                   {/* Subtle scroll indicator */}
-                  <button 
+                  <button
                     onClick={scrollToSecondSlide}
                     className="absolute inset-x-0 bottom-10 flex flex-col items-center gap-2 opacity-50 hover:opacity-100 transition-opacity pointer-events-auto group"
                   >
-                    <span className="text-xs uppercase tracking-widest font-medium">Scroll</span>
+                    <span className="text-xs uppercase tracking-widest font-medium"></span>
                     <ChevronDown className="w-5 h-5 animate-bounce group-hover:translate-y-1 transition-transform" />
                   </button>
                 </div>
