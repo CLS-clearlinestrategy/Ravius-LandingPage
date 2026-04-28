@@ -27,6 +27,11 @@ export interface ScrollVideoConfig {
   scrollHeight: string;
   videoOpacity: number;
   slides: ScrollVideoSlide[];
+  /**
+   * Static image rendered on mobile instead of the scroll-scrubbed video.
+   * Gets a GPU-accelerated parallax effect. Falls back to no image if omitted.
+   */
+  mobileFallbackImage?: string;
 }
 
 /* ── Content Block Discriminated Union ── */
@@ -199,6 +204,7 @@ export const siteConfig: SiteConfig = {
     src: "/herovideo-op.mp4",
     scrollHeight: "300vh",
     videoOpacity: 0.5,
+    mobileFallbackImage: "/01.png",
     slides: [
       {
         title: "Você merece um sistema",
