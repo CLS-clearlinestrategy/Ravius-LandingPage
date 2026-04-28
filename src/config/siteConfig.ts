@@ -235,7 +235,7 @@ export const siteConfig: SiteConfig = {
         "Cada detalhe foi projetado para entregar a melhor experiência possível, do código à interface final.",
       items: [
         { icon: "Code2", title: "Softwares sob medida", description: "Sistemas robustos e escaláveis desenvolvidos especificamente para as necessidades únicas do seu negócio." },
-        { icon: "Layout", title: "Sites modernos que captam leads", description: "Design premium focado em conversão, com performance extrema e SEO otimizado para o Google." },
+        { icon: "Layout", title: "Sites modernos que captam leads", description: "Design premium focado em conversão, com performance extrema e SEO otimizado para o Google, isso aumenta o alcance do seu negócio." },
         { icon: "Rocket", title: "Entregas rápidas", description: "Metodologia ágil e arquitetura modular que permitem colocar seu projeto no ar em tempo recorde." },
         { icon: "Target", title: "Consultorias estratégicas", description: "Direcionamento técnico especializado para garantir a melhor escolha de tecnologia e infraestrutura." },
       ],
@@ -247,7 +247,7 @@ export const siteConfig: SiteConfig = {
       highlight: "falam por si",
       description: "Números reais de clientes que adotaram o Padrão Ravius em seus negócios.",
       stats: [
-        { value: "+120%", label: "Aumento em conversões" },
+        { value: "+100%", label: "Aumento em conversões" },
         { value: "1.2s", label: "Tempo médio de carregamento" },
         { value: "+20", label: "Projetos entregues" },
       ],
@@ -308,21 +308,21 @@ export const siteConfig: SiteConfig = {
       description: "Depoimentos reais de profissionais que transformaram seus negócios com o Padrão Ravius.",
       testimonials: [
         {
-          name: "Dra. Camila",
+          name: "Dra. Camila Almeida",
           role: "Diretora Comercial",
-          content: "Depois de adotar a Ravius, nosso agendamento online cresceu 240%. A landing page transmite exatamente a sofisticação que nossos pacientes esperam.",
+          content: "Depois de contratar, nosso agendamento online cresceu 100%. A landing page transmite exatamente a sofisticação que nossos pacientes esperam.",
           avatarUrl: "https://plus.unsplash.com/premium_photo-1688740375397-34605b6abe48?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODl8fGZhY2V8ZW58MHx8MHx8fDA%3D",
         },
         {
-          name: "Cauã Lucas",
-          role: "CEO",
-          content: "O sistema desenvolvido por eles transformou nosso fluxo de trabalho. A equipe conseguiu produzir mais em menos tempo, com muito mais organização e eficiência em cada etapa do processo.",
+          name: "João Marcelo",
+          role: "Dono de estabelecimento",
+          content: "O sistema que eles criaram, mudou todo o nosso fluxo de trabalho. A equipe conseguiu produzir mais em menos tempo, com muito mais organização e eficiência em cada setor.",
           avatarUrl: "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fGZhY2V8ZW58MHx8MHx8fDA%3D",
         },
         {
-          name: "Ana Beatriz",
-          role: "Fundadora OldAndRude",
-          content: "Ter uma landing page que reflete a identidade do meu estúdio era essencial. A Ravius entregou isso com uma arquitetura que minha equipe de marketing consegue atualizar sozinha.",
+          name: "Sabrina Soares",
+          role: "Fotógrafa",
+          content: "Ter uma página que reflete a identidade do meu estúdio era essencial. A Ravius entregou isso com uma estratégias de marketing que funcionam.",
           avatarUrl: "https://images.unsplash.com/photo-1661694134633-a97b382ddeb9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fGZhY2UlMjBhbWF0ZXVyfGVufDB8fDB8fHww"
         },
       ],
