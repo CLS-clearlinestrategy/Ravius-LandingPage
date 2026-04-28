@@ -32,10 +32,10 @@ const ProcessContentBlock = ({ data }: ProcessContentBlockProps) => {
       <ParallaxLayer speed={0.1} className="absolute bottom-[30%] left-[10%] pointer-events-none select-none z-0">
         <div className="w-24 h-24 rounded-full glass-bubble" style={{ animationDelay: '-1s' }} aria-hidden="true" />
       </ParallaxLayer>
-      <ParallaxLayer speed={0.5} className="absolute top-[60%] left-[20%] pointer-events-none select-none z-0 opacity-50 blur-xl">
+      <ParallaxLayer speed={0.5} className="absolute top-[60%] left-[20%] pointer-events-none select-none z-0 opacity-20 blur-xl">
         <div className="w-16 h-16 rounded-full bg-primary/20" aria-hidden="true" />
       </ParallaxLayer>
-      <ParallaxLayer speed={-0.2} className="absolute top-[20%] right-[30%] pointer-events-none select-none z-0 opacity-30 blur-2xl">
+      <ParallaxLayer speed={-0.2} className="absolute top-[20%] right-[30%] pointer-events-none select-none z-0 opacity-15 blur-2xl">
         <div className="w-32 h-32 rounded-full bg-secondary/30" aria-hidden="true" />
       </ParallaxLayer>
 
