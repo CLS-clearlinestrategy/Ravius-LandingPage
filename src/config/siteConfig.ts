@@ -252,6 +252,8 @@ export const siteConfig: SiteConfig = {
         { value: "+20", label: "Projetos entregues" },
       ],
     },
+
+    /*
     {
       id: "demo-video",
       type: "video",
@@ -259,10 +261,11 @@ export const siteConfig: SiteConfig = {
       highlight: "ação",
       description:
         "Assista como o Padrão Ravius acelera a criação de interfaces modernas com scroll suave, parallax e animações baseadas em física real.",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      videoUrl: "https://www.youtube.com/embed/k2maqlyUuVw",
       posterImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop",
       videoPosition: "left",
     },
+    */
     {
       id: "process",
       type: "process",
@@ -289,12 +292,12 @@ export const siteConfig: SiteConfig = {
       logos: [
         { name: "Clínica Visage", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Visage&font=outfit" },
         { name: "Aura Spa", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Aura+Spa&font=outfit" },
-        { name: "Dog no molho", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=DognoMolho&font=outfit" },
-        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" },
+        { name: "Solutio", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Solutio&font=outfit" },
+        { name: "Agência Nix", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Agência Nix&font=outfit" },
         { name: "Clínica Visage", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Visage&font=outfit" },
         { name: "Aura Spa", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Aura+Spa&font=outfit" },
-        { name: "Dog no molho", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=DognoMolho&font=outfit" },
-        { name: "Agência Nix", logoUrl: "https://agencianix.lovable.app/icon-white.png" }
+        { name: "Solutio", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Solutio&font=outfit" },
+        { name: "Agência Nix", logoUrl: "https://placehold.co/160x48/0A0A0A/FFFDE0?text=Agência Nix&font=outfit" }
       ],
     },
     {
