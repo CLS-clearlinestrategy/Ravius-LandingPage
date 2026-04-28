@@ -30,6 +30,7 @@ const ScrollVideoSection = () => {
         src={scrollVideo.src}
         scrollHeight={scrollVideo.scrollHeight}
         videoOpacity={scrollVideo.videoOpacity}
+        mobileFallbackImage={scrollVideo.mobileFallbackImage}
       >
         {(progress) => {
           /* First slide: visible 0–30%, fades out 30–50% */
