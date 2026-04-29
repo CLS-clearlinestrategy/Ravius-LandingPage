@@ -94,20 +94,20 @@ const FAQContentBlock = ({ data }: FAQContentBlockProps) => {
             );
           })}
         </div>
-        <div className="flex justify-center gap-4 pt-10 pointer-events-auto">
+        <RevealBlock className="flex justify-center pt-10" delay={400}>
           <a
             href="#contact"
-            className="inline-flex items-center gap-5 px-8 py-3 border-2 border-white/20 text-white rounded-full 
+            className="group inline-flex items-center gap-5 px-8 py-3 border-2 border-white/20 text-white rounded-full 
                transition-all duration-300 ease-in-out
-               bg-white/5 
+               bg-white/10 
                shadow-[0_0_15px_rgba(255,255,255,0.05)] 
                hover:shadow-[0_0_25px_rgba(255,255,255,0.15)] 
-               hover:bg-white/10 hover:border-white/40 hover:scale-[1.02]"
+               hover:bg-white/20 hover:border-white/40 hover:scale-[1.02]"
           >
-            <span className="font-medium">Agende agora uma reunião</span>
+            <span className="font-medium">Vamos conversar?</span>
             <ArrowUp className="w-5 h-5 transition-transform group-hover:translate-y-[-2px]" />
           </a>
-        </div>
+        </RevealBlock>
       </div>
     </section>
   );
