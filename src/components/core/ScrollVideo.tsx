@@ -3,6 +3,8 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { useParallax } from "@/hooks/useParallax";
 
 interface ScrollVideoProps {
+  /** Optional looping intro video that stays visible until the first scroll. */
+  introLoopSrc?: string;
   /** Path or URL to the video file (will be fetched into memory as Blob) */
   src: string;
   /**
@@ -101,6 +103,7 @@ const MobileParallaxImage = ({
  * ```
  */
 const ScrollVideo = ({
+  introLoopSrc,
   src,
   mobileFallbackImage,
   children,
@@ -131,6 +134,14 @@ const ScrollVideo = ({
   const effectiveProgress = videoDisabled ? 0 : progress;
   const rendered =
     typeof children === "function" ? children(effectiveProgress) : children;
+  const introFadeRange = 0.06;
+  const introOpacity =
+    !introLoopSrc || videoDisabled
+      ? 0
+      : !isReady
+        ? videoOpacity
+        : Math.max(0, 1 - effectiveProgress / introFadeRange) * videoOpacity;
+  const showIntroLayer = introOpacity > 0.001;
 
   return (
     <div
@@ -155,12 +166,27 @@ const ScrollVideo = ({
             muted
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
             style={{
               opacity: isReady ? videoOpacity : 0,
               willChange: "contents",
             }}
           />
+        )}
+
+        {!videoDisabled && !!introLoopSrc && (
+          <video
+            muted
+            autoPlay
+            loop
+            playsInline
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 pointer-events-none"
+            style={{ opacity: introOpacity }}
+            aria-hidden={!showIntroLayer}
+          >
+            <source src={introLoopSrc} type="video/mp4" />
+          </video>
         )}
 
         {/* Optional gradient overlay (desktop only — mobile has its own) */}

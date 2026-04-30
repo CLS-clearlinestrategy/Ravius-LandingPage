@@ -40,6 +40,7 @@ const ScrollVideoSection = () => {
   return (
     <section id="scroll-video">
       <ScrollVideo
+        introLoopSrc={scrollVideo.introLoopSrc}
         src={scrollVideo.src}
         scrollHeight={scrollVideo.scrollHeight}
         videoOpacity={scrollVideo.videoOpacity}
