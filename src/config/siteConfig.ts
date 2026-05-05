@@ -23,6 +23,7 @@ export interface ScrollVideoSlide {
 }
 
 export interface ScrollVideoConfig {
+  introLoopSrc?: string;
   src: string;
   scrollHeight: string;
   videoOpacity: number;
@@ -201,6 +202,7 @@ export const siteConfig: SiteConfig = {
 
 
   scrollVideo: {
+    introLoopSrc: "/water.mp4",
     src: "/herovideo-op.mp4",
     scrollHeight: "300vh",
     videoOpacity: 0.5,
